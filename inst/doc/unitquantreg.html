@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Get started</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Get started</h1>
+
+
+
+<p>The goal of <code>unitquantreg</code> is to provide tools for
+estimation and inference on parametric quantile regression models for
+bounded data.</p>
+<p>The package was written following the same interface as
+<code>stats::glm</code> function, containing several S3 methods for
+inference, residual analysis, prediction, plotting, and model
+comparison.</p>
+<p>For more computation efficient the [<code>dpqr</code>]’s, likelihood,
+score and hessian functions are vectorized and written in
+<code>C++</code>.</p>
+<p>The parameter estimation and inference are performed under the
+frequentist paradigm, and the <a href="https://CRAN.R-project.org/package=optimx"><strong>optimx</strong></a>
+package is used to perform the numerical optimization. Besides that, the
+analytical score function are provided in the optimization process and
+the standard errors are computed from the analytical hessian matrix,
+both function are implemented in efficient away using
+<code>C++</code>.</p>
+<p>The distribution families available are:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lt_families <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;unit-Weibull&quot;</span> <span class="ot">=</span> <span class="st">&quot;uweibull&quot;</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Kumaraswamy&quot;</span> <span class="ot">=</span> <span class="st">&quot;kum&quot;</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Logistic&quot;</span> <span class="ot">=</span> <span class="st">&quot;ulogistic&quot;</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Birnbaum-Saunders&quot;</span> <span class="ot">=</span> <span class="st">&quot;ubs&quot;</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;log-extended Exponential-Geometric&quot;</span> <span class="ot">=</span> <span class="st">&quot;leeg&quot;</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Chen&quot;</span> <span class="ot">=</span> <span class="st">&quot;uchen&quot;</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Generalized Half-Normal-E&quot;</span> <span class="ot">=</span> <span class="st">&quot;ughne&quot;</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Generalized Half-Normal-X&quot;</span> <span class="ot">=</span> <span class="st">&quot;ughnx&quot;</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Gompertz&quot;</span> <span class="ot">=</span> <span class="st">&quot;ugompertz&quot;</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Johnson-SB&quot;</span> <span class="ot">=</span> <span class="st">&quot;johnsonsb&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Burr-XII&quot;</span> <span class="ot">=</span> <span class="st">&quot;uburrxii&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;arc-secant hyperbolic Weibull&quot;</span> <span class="ot">=</span> <span class="st">&quot;ashw&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;unit-Gumbel&quot;</span> <span class="ot">=</span> <span class="st">&quot;ugumbel&quot;</span>)</span></code></pre></div>
+<p>The workhorse function is <code>unitquantreg</code>, which follows
+the same interface as <code>stats::glm</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unitquantreg)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(water)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>lt_fits <span class="ot">&lt;-</span> <span class="fu">lapply</span>(lt_families, <span class="cf">function</span>(fam) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unitquantreg</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> phpws <span class="sc">~</span> mhdi <span class="sc">+</span> incpc <span class="sc">+</span> region <span class="sc">+</span> <span class="fu">log</span>(pop), <span class="at">data =</span> water, <span class="at">tau =</span> <span class="fl">0.5</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> fam, <span class="at">link =</span> <span class="st">&quot;logit&quot;</span>, <span class="at">link.theta =</span> <span class="st">&quot;log&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">sapply</span>(lt_fits, coef))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                    (Intercept)      mhdi         incpc</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Weibull                         -6.514485 11.826177  2.600473e-04</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Kumaraswamy                          -1.625951  4.843166  2.111029e-03</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Logistic                        -5.365469 10.508100  1.559636e-03</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Birnbaum-Saunders               -6.556648 13.723681  6.499360e-04</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; log-extended Exponential-Geometric   -4.712735  9.142144  1.928040e-03</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Chen                            -8.098012 13.560938 -6.162645e-05</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Generalized Half-Normal-E       -6.598061 11.731146 -1.037014e-04</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Generalized Half-Normal-X       -5.035562 13.186081  1.580614e-03</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Gompertz                        -6.260194 11.719934  4.103341e-04</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Johnson-SB                           -5.993763 11.803290  1.144566e-03</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Burr-XII                        -5.811837 11.043123  3.777215e-04</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; arc-secant hyperbolic Weibull        -7.363838 12.705584  7.957473e-05</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Gumbel                          -9.338592 14.990026 -5.503130e-04</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                         region    log(pop)  log(theta)</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Weibull                       -0.26990871  0.10546762  0.17249694</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Kumaraswamy                        -0.07860323 -0.04727081  1.75778137</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Logistic                      -0.15826000  0.01773368  0.63005907</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Birnbaum-Saunders             -0.18081222 -0.02300195  0.00832919</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; log-extended Exponential-Geometric -0.18882479  0.02252007  1.68797084</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Chen                          -0.48153890  0.19218762 -0.25568492</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Generalized Half-Normal-E     -0.37220694  0.14224250 -0.18418543</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Generalized Half-Normal-X     -0.16993805 -0.18341181 -0.38141377</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Gompertz                      -0.23932329  0.09146941 -5.42477111</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Johnson-SB                         -0.19500756  0.01823070  0.01748328</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Burr-XII                      -0.19140000  0.07565710  0.28322367</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; arc-secant hyperbolic Weibull      -0.38168564  0.14972053  0.72098495</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Gumbel                        -0.62080389  0.25058612 -0.26073820</span></span></code></pre></div>
+<p>You can use the <code>likelihood_stats</code> to get likelihood-base
+statistics:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">likelihood_stats</span>(<span class="at">lt =</span> lt_fits)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Likelihood-based statistics of fit for unit quantile regression models </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:  likelihood_stats(lt = lt_fits)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                    Neg2LogLike AIC       BIC       HQIC     </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Logistic                      -8443.029   -8431.029 -8394.140 -8417.855</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Johnson-SB                         -8238.405   -8226.405 -8189.516 -8213.232</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Burr-XII                      -8096.114   -8084.114 -8047.225 -8070.941</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Weibull                       -7994.077   -7982.077 -7945.188 -7968.903</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Birnbaum-Saunders             -7955.990   -7943.990 -7907.101 -7930.817</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Gompertz                      -7808.838   -7796.838 -7759.949 -7783.664</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; arc-secant hyperbolic Weibull      -7679.482   -7667.482 -7630.593 -7654.308</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; log-extended Exponential-Geometric -7677.034   -7665.034 -7628.145 -7651.860</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Generalized Half-Normal-E     -7496.966   -7484.966 -7448.077 -7471.792</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Kumaraswamy                        -7188.498   -7176.498 -7139.609 -7163.324</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Chen                          -7016.542   -7004.542 -6967.653 -6991.368</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Generalized Half-Normal-X     -6965.962   -6953.962 -6917.073 -6940.789</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Gumbel                        -6531.775   -6519.775 -6482.886 -6506.602</span></span></code></pre></div>
+<p>It is also possible to perform pairwise <a href="https://en.wikipedia.org/wiki/Vuong%27s_closeness_test">Vuong
+test</a> to model selection of nonnested models.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select just a few model to not mess the output</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lt_chosen <span class="ot">&lt;-</span> lt_fits[<span class="fu">c</span>(<span class="st">&quot;unit-Logistic&quot;</span>, <span class="st">&quot;Johnson-SB&quot;</span>, <span class="st">&quot;unit-Burr-XII&quot;</span>, <span class="st">&quot;unit-Weibull&quot;</span>)]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.vuong.test</span>(<span class="at">lt =</span> lt_chosen)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Pairwise comparisons using Vuong likelihood ratio test for non-nested models </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; data:  unitquantreg(formula = phpws ~ mhdi + incpc + region + log(pop), </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     data = water, tau = 0.5, family = fam, link = &quot;logit&quot;, link.theta = &quot;log&quot;) </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;               unit-Logistic Johnson-SB unit-Burr-XII</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Johnson-SB    0.00031       -          -            </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Burr-XII 3.9e-07       0.09659    -            </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; unit-Weibull  8.8e-11       0.00013    0.04868      </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; P value adjustment method: holm</span></span></code></pre></div>
+<p>The currently methods implemented for <code>unitquantreg</code>
+objects are:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class =</span> <span class="st">&quot;unitquantreg&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] coef         confint      fitted       hnp          logLik      </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] model.frame  model.matrix plot         predict      print       </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] residuals    summary      terms        update       vcov        </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; see &#39;?methods&#39; for accessing help and source code</span></span></code></pre></div>
+<p>Another feature of unitquantreg package is to fit different models
+for several quantiles values.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fits <span class="ot">&lt;-</span> <span class="fu">unitquantreg</span>(<span class="at">formula =</span> phpws <span class="sc">~</span> mhdi <span class="sc">+</span> incpc <span class="sc">+</span> region <span class="sc">+</span> <span class="fu">log</span>(pop),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> water, <span class="at">tau =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">49</span><span class="sc">/</span><span class="dv">50</span>, <span class="at">family =</span> <span class="st">&quot;uweibull&quot;</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">link =</span> <span class="st">&quot;logit&quot;</span>, <span class="at">link.theta =</span> <span class="st">&quot;log&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fits)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;unitquantregs&quot;</span></span></code></pre></div>
+<p>Then, the user can visualize the results using the <code>plot</code>
+method:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fits, <span class="at">which =</span> <span class="st">&quot;coef&quot;</span>, <span class="at">mean_effect =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>The currently methods implemented for <code>unitquantregs</code>
+objects are:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class =</span> <span class="st">&quot;unitquantregs&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] plot    print   summary</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; see &#39;?methods&#39; for accessing help and source code</span></span></code></pre></div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
