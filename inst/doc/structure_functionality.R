@@ -64,8 +64,9 @@ lt_families <- list("unit-Weibull" = "uweibull",
                     "arc-secant hyperbolic Weibull" = "ashw",
                     "unit-Gumbel" = "ugumbel")
 lt_fits <- lapply(lt_families, function(fam) {
-  unitquantreg(formula = phpws ~ mhdi + incpc + region + log(pop), data = water,
-               tau = 0.5, family = fam, link = "logit", link.theta = "log")
+  unitquantreg(formula = phpws ~ mhdi + incpc + region + log(pop),
+               data = water, tau = 0.5, family = fam, link = "logit",
+               link.theta = "log")
 })
 t(sapply(lt_fits, coef))
 
@@ -101,7 +102,7 @@ chosen_taus <- c("0.02", "0.5", "0.98")
 df_plot <- do.call("rbind", lapply(fits_ulogistic[chosen_taus], get_data))
 df_plot$tau <- paste0(expression(tau), " == ", df_plot$tau)
 
-ggplot(df_plot, aes(x=teo, y=obs)) +
+ggplot(df_plot, aes(x = teo, y = obs)) +
   facet_wrap(~tau, labeller = label_parsed) +
   geom_point(shape = 3, size = 1.4) +
   geom_line(aes(y = median), linetype = "dashed") +
@@ -119,7 +120,7 @@ ggplot(df_plot, aes(x=teo, y=obs)) +
 summary(lt_fits[["unit-Logistic"]])
 
 ## ----plot-ulogistic-----------------------------------------------------------
-plot(fits_ulogistic, which = "coef", mean_effect = FALSE)
+plot(fits_ulogistic, which = "coef")
 
 ## ----fits-uweibull, cache=TRUE------------------------------------------------
 system.time(

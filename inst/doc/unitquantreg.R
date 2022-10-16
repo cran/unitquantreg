@@ -46,8 +46,8 @@ fits <- unitquantreg(formula = phpws ~ mhdi + incpc + region + log(pop),
                      link = "logit", link.theta = "log")
 class(fits)
 
-## ----plot-unitquantregs-------------------------------------------------------
-plot(fits, which = "coef", mean_effect = FALSE)
+## ----plot-unitquantregs, out.width="80%"--------------------------------------
+plot(fits, which = "coef")
 
 ## -----------------------------------------------------------------------------
 methods(class = "unitquantregs")

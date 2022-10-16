@@ -40,14 +40,16 @@ HQIC: The Hannan and Quinn information criterion (HQIC)  is defined as \deqn{HQI
 where \eqn{L} is the likelihood function.
 }
 \examples{
-data(water, package = "unitquantreg")
+data(sim_bounded, package = "unitquantreg")
+sim_bounded_curr <- sim_bounded[sim_bounded$family == "uweibull", ]
 
-models  <- c("johnsonsb", "kum", "leeg", "ubs", "uburrxii", "uchen", "ughne",
-"ughnx", "ugompertz", "ulogistic", "uweibull")
-fits <- lapply(models, function(M) unitquantreg(formula = phpws ~ mhdi,
-tau = 0.5, data = water, family = M))
+models <- c("uweibull", "kum", "ulogistic")
+lt_fits <- lapply(models, function(fam) {
+  unitquantreg(formula = y1 ~ x, tau = 0.5, data = sim_bounded_curr,
+               family = fam)
+})
 
-ans <- likelihood_stats(lt = fits)
+ans <- likelihood_stats(lt = lt_fits)
 ans
 
 }
